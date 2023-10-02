@@ -1,0 +1,16 @@
+list of commands implemeted
+ls
+cd 
+grep 
+cp
+history
+chmod
+mv
+cat
+touch 
+tail
+head
+rm
+wc
+mkdir 
+sort

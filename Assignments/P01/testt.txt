@@ -1,0 +1,10 @@
+total 32
+drwxrwxr-x 3 madhav madhav 4096 Sep 13 23:42 .
+drwxrwxr-x 3 madhav madhav 4096 Sep 13 21:43 ..
+drwxrwxr-x 3 madhav madhav 4096 Sep 13 22:46 cmd
+-rw-rw-r-- 1 madhav madhav    0 Sep 13 23:36 --help
+-rw-rw-r-- 1 madhav madhav    0 Sep 13 23:45 m.txt
+-rw-rw-r-- 1 madhav madhav   52 Sep 13 21:43 README.md
+-rw-rw-r-- 1 madhav madhav 8332 Sep 13 23:41 shell.py
+-rw-rw-r-- 1 madhav madhav    0 Sep 13 23:31 test.py
+-rw-rw-r-- 1 madhav madhav  324 Sep 13 23:42 tu.txt

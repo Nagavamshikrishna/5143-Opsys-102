@@ -1,0 +1,212 @@
+csafmadamla
+Hello hello
+total 32
+drwxrwxr-x 3 madhav madhav 4096 Sep 13 23:42 .
+drwxrwxr-x 3 madhav madhav 4096 Sep 13 21:43 ..
+drwxrwxr-x 3 madhav madhav 4096 Sep 13 22:46 cmd
+-rw-rw-r-- 1 madhav madhav    0 Sep 13 23:36 --help
+-rw-rw-r-- 1 madhav madhav    0 Sep 13 23:45 m.txt
+-rw-rw-r-- 1 madhav madhav   52 Sep 13 21:43 README.md
+-rw-rw-r-- 1 madhav madhav 8332 Sep 13 23:41 shell.py
+-rw-rw-r-- 1 madhav madhav    0 Sep 13 23:31 test.py
+-rw-rw-r-- 1 madhav madhav  324 Sep 13 23:42 tu.txt
+
+import os
+import sys
+from printCaptureLogger import PrintCaptureLogger
+
+#from rich import print 
+from colorama import Fore, Style
+
+
+
+
+def cat(**kwargs):
+    # print("file cat, line 18",kwargs)
+    print_capture_logger = PrintCaptureLogger()
+    sys.stdout = print_capture_logger
+    try:
+        if "params" in kwargs:
+            params = kwargs["params"]
+        else:
+            params=[]
+            print("\r File name required")
+        for param in params:
+            try:
+                with open(param, 'r') as file:
+                    content = file.read()
+                    print("\r")
+                    print(content)
+            except FileNotFoundError:
+                print("\r Error: {} not found".format(param))
+            except Exception as e:
+                print("A\r n error occurred: {}".format(e))
+            # print("\n")
+    finally:
+        sys.stdout = sys.__stdout__  # Restore the original stdout
+
+    captured_output = ''.join(print_capture_logger.log_content)
+    return captured_output
+
+# def less(**kwargs):
+#     if "params" in kwargs:
+#         filename = kwargs["params"]
+#         print("-------",filename)
+#         try:
+#             with open(filename, 'r') as file:
+#                 lines = file.readlines()
+            
+#             page_size = 8  # Number of lines to display at a time
+#             current_line = 0
+
+#             while True:
+#                 # Display the current page of lines
+#                 for i in range(current_line, min(current_line + page_size, len(lines))):
+#                     print(lines[i], end='')
+
+#                 # Ask the user to continue or quit
+#                 user_input = input("Press 'q' to quit, 'n' for the next page: ")
+#                 if user_input.lower() == 'q':
+#                     break
+#                 elif user_input.lower() == 'n':
+#                     current_line += page_size
+#                     if current_line >= len(lines):
+#                         break
+#         except FileNotFoundError:
+#             print(f"\rless: cannot open '{filename}' for reading: No such file or directory")
+#         except Exception as e:
+#             print(f"An error occurred: {e}")
+#     else:
+#         print(f"\r File name required")
+
+def less(**kwargs):
+    # print("file cat, line 18",kwargs)
+    try:
+        if kwargs["params"] != []:
+            filename = kwargs["params"][0]
+        
+            with open(filename, 'r') as file:
+                lines = file.readlines()
+            content = " "
+                
+            page_size = 24  # Number of lines to display at a time
+            current_line = 0
+
+            while True:
+                # Display the current page of lines
+                for i in range(current_line, min(current_line + page_size, len(lines))):
+                    content += lines[i]
+                print(content, end='')
+                print(type(content))
+                # Ask the user to continue or quit
+                user_input = input("Press 'q' to quit, 'n' for the next page: ")
+                if user_input.lower() == 'q':
+                    break
+                elif user_input.lower() == 'n':
+                    current_line += page_size
+                    if current_line >= len(lines):
+                        break
+        else:
+            # params=[]
+            print(f"\r File name required")
+
+    except FileNotFoundError:
+        print(f"\rless: cannot open '{filename}' for reading: No such file or directory")
+    except Exception as e:
+        print(f"\rAn error occurred: {e}")
+    
+
+def head(**kwargs):
+    # to check flag value
+    print_capture_logger = PrintCaptureLogger()
+    sys.stdout = print_capture_logger
+    try: 
+        if(kwargs["flags"] == ''):
+            len = 5
+        else:
+            len = int(kwargs["flags"])
+
+        if kwargs["params"] != []:
+            filename = kwargs["params"][0]
+            print("\r")
+            try:
+                # open the file
+                with open(filename, 'r') as file:
+                    lines = file.readlines()[:len]
+                # print lines to console
+                for line in lines:
+                    print(line, end='')
+
+            except FileNotFoundError:
+                print(f"\nless: cannot open '{filename}' for reading: No such file or directory")
+            except Exception as e:
+                print(f"\nAn error occurred: {e}")
+        else:
+            print(f"\nhead: invalid trailing option -- 1.\nTry 'head --help' for more information.")
+    finally:
+        sys.stdout = sys.__stdout__  # Restore the original stdout
+
+    captured_output = ''.join(print_capture_logger.log_content)
+    return captured_output                
+    
+def tail(**kwargs):
+    print_capture_logger = PrintCaptureLogger()
+    sys.stdout = print_capture_logger
+    try:
+        # to check flag value
+        if(kwargs["flags"] == ''):
+            num = 5
+        else:
+            num = int(kwargs["flags"])
+        if kwargs["params"] != []:
+            filename = kwargs["params"][0]
+            try:
+                with open(filename, 'r') as file:
+                    lines = file.readlines()
+                tot_lines = len(open(filename).readlines())
+                for i in range(tot_lines - num , tot_lines):
+                    print(lines[i], end='')
+
+            except FileNotFoundError:
+                print(f"\rtail: cannot open '{filename}' for reading: No such file or directory")
+            except Exception as e:
+                print(f"\nAn error occurred: {e}")
+        else:
+            print(f"\ntail: invalid trailing option -- 1.\nTry 'head --help' for more information.")
+    finally:
+        sys.stdout = sys.__stdout__  # Restore the original stdout
+
+    captured_output = ''.join(print_capture_logger.log_content)
+    return captured_output
+
+
+
+def cp(**kwargs):
+    print_capture_logger = PrintCaptureLogger()
+    sys.stdout = print_capture_logger
+    try:
+        s1 = kwargs["params"]
+        if kwargs["params"] != [] and len(s1) == 2:
+            try:
+                file1 = s1[0]
+                file2 = s1[1]
+                if not os.path.isfile(file1):
+                    raise Exception ("\ncp: cannot open '{filename}' for reading: No such file or directory")
+                if not os.path.isfile(file2):
+                    open(file2,'w').close()
+                with open(file1,'r') as f1, open(file2,'w') as f2:
+                # read the contents of file1
+                    for line in f1:
+                        f2.write(line)
+            except FileNotFoundError:
+                print(f"\ncp: cannot open '{file2}' for reading: No such file or directory")
+            except Exception as e:
+                print(f"\nAn error occurred: {e}")
+        else:
+            print(f"\ncp: missing file operand.\nTry 'cp --help' for more information.")
+    finally:
+        sys.stdout = sys.__stdout__  # Restore the original stdout
+
+    captured_output = ''.join(print_capture_logger.log_content)
+    return captured_output
+    

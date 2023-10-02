@@ -1,0 +1,9 @@
+commmands to be executed 
+mv pm.txt bana
+cp /home/jarvis/Documents/others/test1.txt /home/jarvis/Documents/others/test_dir
+rm -rf bana
+cat write.txt
+less test.py
+head -n 10 abc.txt
+tail -n 10 abc.txt
+touch <filename>
