@@ -43,10 +43,10 @@ After completing all the necessary packages run one of the following commands
 
 |   #   | File            | Description                                        |
 | :---: | --------------- | -------------------------------------------------- |
-|   1   | [sim.py](https://github.com/nitishkumar2306/5143-Opsys-102/blob/main/Assignments/04-P03/sim.py) | file that holds driver python code |
-|   2  | [requirements.txt](https://github.com/nitishkumar2306/5143-Opsys-102/blob/main/Assignments/04-P03/requirements.txt) | file that holds list of dependencies for this project |
-|   3   | [walkthrough.py](https://github.com/nitishkumar2306/5143-Opsys-102/blob/main/Assignments/04-P03/walkthrough.txt) | file that holds series of commands to run the program |
-|   4   | [job_stats_FCFS_1_1_small_file.dat](https://github.com/nitishkumar2306/5143-Opsys-102/blob/main/Assignments/04-P03/job_stats_FCFS_1_1_small_file.dat) | file that holds FCFS job stats |
-|   5   | [message_FCFS_1_1_small_file.dat](https://github.com/nitishkumar2306/5143-Opsys-102/blob/main/Assignments/04-P03/message_FCFS_1_1_small_file.dat)      | file that holds FCFS messages |
-|   6   | [overall_stats_FCFS_1_1_small_file.dat](https://github.com/nitishkumar2306/5143-Opsys-102/blob/main/Assignments/04-P03/overall_stats_FCFS_1_1_small_file.dat) | file that holds FCFS overall stats |
+|   1   | [sim.py](https://github.com/Nagavamshikrishna/5143-Opsys-102/blob/main/Assignments/P03/sim.py) | file that holds driver python code |
+|   2  | [requirements.txt](https://github.com/Nagavamshikrishna/5143-Opsys-102/blob/main/Assignments/P03/requirements.txt) | file that holds list of dependencies for this project |
+|   3   | [walkthrough.py](https://github.com/Nagavamshikrishna/5143-Opsys-102/blob/main/Assignments/P03/walkthrough.txt) | file that holds series of commands to run the program |
+|   4   | [job_stats_FCFS_1_1_small_file.dat](https://github.com/Nagavamshikrishna/5143-Opsys-102/blob/main/Assignments/P03/job_stats_FCFS_1_1_small_file.dat) | file that holds FCFS job stats |
+|   5   | [message_FCFS_1_1_small_file.dat](https://github.com/Nagavamshikrishna/5143-Opsys-102/blob/main/Assignments/P03/message_FCFS_1_1_small_file.dat)      | file that holds FCFS messages |
+|   6   | [overall_stats_FCFS_1_1_small_file.dat](https://github.com/Nagavamshikrishna/5143-Opsys-102/blob/main/Assignments/P03/overall_stats_FCFS_1_1_small_file.dat) | file that holds FCFS overall stats |
 
